@@ -428,6 +428,7 @@ class FilesystemIterator extends DirectoryIterator {
          * The handling flags to set.
          * See the FilesystemIterator constants.
          * </p>
+         * @expectedValues $flags CURRENT_MODE_MASK,CURRENT_AS_PATHNAME,CURRENT_AS_FILEINFO,CURRENT_AS_SELF,KEY_MODE_MASK,KEY_AS_PATHNAME,FOLLOW_SYMLINKS,KEY_AS_FILENAME,NEW_CURRENT_AND_KEY,SKIP_DOTS,UNIX_PATHS,OTHER_MODE_MASK
          * @return void 
          * @since 5.3.0
          */
@@ -869,6 +870,7 @@ class SplFileObject extends SplFileInfo implements RecursiveIterator, SeekableIt
          * SplFileObject constants 
          * for the available flags.
          * </p>
+         * @expectedValues $flags DROP_NEW_LINE|READ_AHEAD|SKIP_EMPTY|READ_CSV
          * @return void 
          * @since 5.1.0
          */
@@ -1061,6 +1063,7 @@ class SplDoublyLinkedList implements Iterator, Countable, ArrayAccess {
          * </p>
          * The direction of the iteration (either one or the other):
 	 * <b>SplDoublyLinkedList::IT_MODE_LIFO</b> (Stack style)
+         * @expectedValues $mode SplDoublyLinkedList::IT_MODE_LIFO|SplDoublyLinkedList::IT_MODE_FIFO|SplDoublyLinkedList::IT_MODE_DELETE|SplDoublyLinkedList::IT_MODE_KEEP
          * @return void 
          * @since 5.3.0
          */
@@ -1223,6 +1226,7 @@ class SplQueue extends SplDoublyLinkedList {
      * The direction of the iteration (either one or the other):
      * @since 5.3.0
 * <b>SplDoublyLinkedList::IT_MODE_LIFO</b> (Stack style)
+     * @expectedValues $mode SplDoublyLinkedList::IT_MODE_LIFO|SplDoublyLinkedList::IT_MODE_FIFO|SplDoublyLinkedList::IT_MODE_DELETE|SplDoublyLinkedList::IT_MODE_KEEP
      * @return void
      */
     public function setIteratorMode ($mode) {}
@@ -1242,6 +1246,7 @@ class SplStack extends SplDoublyLinkedList {
      * </p>
      * The direction of the iteration (either one or the other):
      * <b>SplDoublyLinkedList::IT_MODE_LIFO</b> (Stack style)
+     * @expectedValues $mode SplDoublyLinkedList::IT_MODE_LIFO|SplDoublyLinkedList::IT_MODE_FIFO|SplDoublyLinkedList::IT_MODE_DELETE|SplDoublyLinkedList::IT_MODE_KEEP
      * @return void
      * @since 5.3.0
      */
@@ -1560,6 +1565,7 @@ class SplPriorityQueue implements Iterator, Countable {
  	 * <b>SplPriorityQueue::extract</b>.
         * </p>
 	 * <b>SplPriorityQueue::EXTR_DATA</b> (0x00000001): Extract the data
+         * @expectedValues $flags EXTR_DATA,EXTR_PRIORITY,EXTR_BOTH
          * @return void 
          * @since 5.3.0
          */
@@ -2135,6 +2141,7 @@ class MultipleIterator implements Iterator {
          * The flags to set, according to the
          * Flag Constants
          * </p>
+         * @expectedValues $flags MIT_NEED_ANY|MIT_NEED_ALL|MIT_KEYS_NUMERIC|MIT_KEYS_ASSOC
          * @return void 
          * @since 5.3.0
          */

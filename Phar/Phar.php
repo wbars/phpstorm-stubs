@@ -46,6 +46,7 @@ class Phar extends RecursiveDirectoryIterator implements RecursiveIterator, Seek
 	 * Alias with which this Phar archive should be referred to in calls to stream
 	 * functionality.
 	 * </p>
+	 * @expectedValues $flags FilesystemIterator::KEY_AS_PATHNAME | FilesystemIterator::CURRENT_AS_FILEINFO
      * @throws BadMethodCallException If called twice.
      * @throws UnexpectedValueException If the phar archive can't be opened.
 	 */
@@ -909,6 +910,7 @@ class PharData extends Phar {
 	 * file format constants
 	 * available within the <b>Phar</b> class.
 	 * </p>
+	 * @expectedValues $flags FilesystemIterator::KEY_AS_PATHNAME | FilesystemIterator::CURRENT_AS_FILEINFO
 	 */
 	public function __construct ($fname, $flags = null, $alias = null, $format = Phar::TAR) {}
 

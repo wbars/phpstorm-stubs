@@ -64,6 +64,7 @@ class OCI_Lob  {
 	 * @return bool <b>TRUE</b> on success or <b>FALSE</b> on failure.
 	 * </p>
 	 * <p>
+     * @expectedValues $flag OCI_LOB_BUFFER_FREE
 	 * Returns <b>FALSE</b> if buffering was not enabled or an error occurred.
 	 */
 	public function flush ($flag = null) {}
@@ -644,6 +645,7 @@ function oci_field_type_raw ($statement, $field) {}
  * using {@see oci_execute} with different modes in
  * the same script.
  * </p>
+ * @exceptedValues $mode OCI_COMMIT_ON_SUCCESS,OCI_DESCRIBE_ONLY,OCI_NO_AUTO_COMMIT
  * @return bool <b>TRUE</b> on success or <b>FALSE</b> on failure.
  */
 function oci_execute ($statement, $mode = OCI_COMMIT_ON_SUCCESS) {}

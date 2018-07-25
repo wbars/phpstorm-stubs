@@ -662,6 +662,7 @@ function array_product(array $array) { }
  * arguments to <i>callback</i> instead of the value</span>
  * </li>
  * </ul>
+ * @expectedValues $flag ARRAY_FILTER_USE_KEY,ARRAY_FILTER_USE_BOTH
  * @return array the filtered array.
  * @since 4.0.6
  * @since 5.0

@@ -607,6 +607,7 @@ function socket_bind ($socket, $address, $port = 0) {}
  * </td>
  * </tr>
  * </table>
+ * @expectedValues $flags MSG_OOB|MSG_PEEK|MSG_WAITALL|MSG_DONTWAIT
  * @return int <b>socket_recv</b> returns the number of bytes received,
  * or <b>FALSE</b> if there was an error. The actual error code can be retrieved by
  * calling <b>socket_last_error</b>. This error code may be
@@ -665,6 +666,7 @@ function socket_recv ($socket, &$buf, $len, $flags) {}
  * </tr>
  * </table>
  * </p>
+ * @expectedValues $flags MSG_OOB|MSG_EOR|MSG_EOF|MSG_DONTROUTE
  * @return int <b>socket_send</b> returns the number of bytes sent, or <b>FALSE</b> on error.
  * @since 4.1.0
  * @since 5.0
@@ -749,6 +751,7 @@ function socket_sendmsg ($socket, array $message, $flags ) {}
  * from which the data is received. If the socket is connection-oriented,
  * <i>port</i> will be <b>NULL</b>.
  * </p>
+ * @expectedValues $flags MSG_OOB|MSG_PEEK|MSG_WAITALL|MSG_DONTWAIT
  * @return int <b>socket_recvfrom</b> returns the number of bytes received,
  * or <b>FALSE</b> if there was an error. The actual error code can be retrieved by
  * calling <b>socket_last_error</b>. This error code may be
@@ -823,6 +826,7 @@ function socket_recvmsg ($socket , $message, $flags) {}
  * <i>port</i> is the remote port number at which the data
  * will be sent.
  * </p>
+ * @expectedValues $flags MSG_OOB|MSG_EOR|MSG_EOF|MSG_DONTROUTE
  * @return int <b>socket_sendto</b> returns the number of bytes sent to the
  * remote host, or <b>FALSE</b> if an error occurred.
  * @since 4.1.0

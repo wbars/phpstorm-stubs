@@ -352,6 +352,7 @@ function iconv_mime_encode ($field_name, $field_value, array $preferences = null
  * iconv.internal_encoding
  * will be used.
  * </p>
+ * @expectedValues $mode ICONV_MIME_DECODE_STRICT,ICONV_MIME_DECODE_CONTINUE_ON_ERROR
  * @return string a decoded MIME field on success,
  * or <b>FALSE</b> if an error occurs during the decoding.
  * @since 5.0
@@ -404,6 +405,7 @@ function iconv_mime_decode ($encoded_header, $mode = 0, $charset = 'ini_get("ico
  * iconv.internal_encoding
  * will be used.
  * </p>
+ * @expectedValues $mode ICONV_MIME_DECODE_STRICT,ICONV_MIME_DECODE_CONTINUE_ON_ERROR
  * @return array an associative array that holds a whole set of
  * MIME header fields specified by
  * <i>encoded_headers</i> on success, or <b>FALSE</b>

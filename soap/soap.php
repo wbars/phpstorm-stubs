@@ -523,6 +523,7 @@ class SoapServer  {
 	 * $_SESSION['_bogus_session_name'], because of this
 	 * <b>session_start</b> must be called before this persistence mode is set.
 	 * </p>
+	 * @expectedValues $mode SOAP_PERSISTENCE_REQUEST,SOAP_PERSISTENCE_SESSION
 	 * @return void No value is returned.
 	 * @since 5.1.2
 	 */

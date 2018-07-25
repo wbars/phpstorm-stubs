@@ -32,6 +32,7 @@
  * There are several modes available:
  * <b>PSPELL_FAST</b> - Fast mode (least number of
  * suggestions)
+ * @expectedValues $mode PSPELL_FAST,PSPELL_NORMAL,PSPELL_BAD_SPELLERS,PSPELL_RUN_TOGETHER
  * @return int the dictionary link identifier on success or <b>FALSE</b> on failure.
  * @since 4.0.2
  * @since 5.0
@@ -71,6 +72,7 @@ function pspell_new ($language, $spelling = null, $jargon = null, $encoding = nu
  * The mode in which spellchecker will work. There are several modes available:
  * <b>PSPELL_FAST</b> - Fast mode (least number of
  * suggestions)
+ * @expectedValues $mode PSPELL_FAST,PSPELL_NORMAL,PSPELL_BAD_SPELLERS,PSPELL_RUN_TOGETHER
  * @return int the dictionary link identifier for use in other pspell functions.
  * @since 4.0.2
  * @since 5.0
@@ -238,6 +240,7 @@ function pspell_config_runtogether ($dictionary_link, $flag) {}
  * There are several modes available:
  * <b>PSPELL_FAST</b> - Fast mode (least number of
  * suggestions)
+ * @expectedValues $mode PSPELL_FAST,PSPELL_NORMAL,PSPELL_BAD_SPELLERS,PSPELL_RUN_TOGETHER
  * @return bool <b>TRUE</b> on success or <b>FALSE</b> on failure.
  * @since 4.0.2
  * @since 5.0

@@ -15,6 +15,7 @@
  * MB_CASE_TITLE.
  * </p>
  * @param string $encoding [optional] &mbstring.encoding.parameter;
+ * @expectedValues MB_CASE_UPPER,MB_CASE_LOWER,MB_CASE_TITLE
  * @return string A case folded version of string converted in the
  * way specified by mode.
  * @since 4.3.0

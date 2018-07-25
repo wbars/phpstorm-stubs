@@ -162,6 +162,7 @@ class mysqli  {
      * @link http://www.php.net/manual/en/mysqli.begin-transaction.php
      * @param int $flags [optional]
      * @param string $name [optional]
+     * @expectedValues $flags MYSQLI_TRANS_START_READ_ONLY,MYSQLI_TRANS_START_READ_WRITE,MYSQLI_TRANS_START_WITH_CONSISTENT_SNAPSHOT
      * @return bool true on success or false on failure.
      * @since 5.5.0
      */
@@ -215,6 +216,7 @@ class mysqli  {
 	 * @link http://php.net/manual/en/mysqli.commit.php
 	 * @param int $flags A bitmask of MYSQLI_TRANS_COR_* constants.
 	 * @param string $name If provided then COMMIT $name is executed.
+     * @expectedValues $flags MYSQLI_TRANS_COR_AND_CHAIN|MYSQLI_TRANS_COR_AND_NO_CHAIN|MYSQLI_TRANS_COR_NO_RELEASE|MYSQLI_TRANS_COR_RELEASE
 	 * @return bool true on success or false on failure.
 	 * @since 5.5 Added flags and name parameters.
 	 * @since 5.0
@@ -568,6 +570,7 @@ class mysqli  {
 	 * not supported in PHP. If you want to execute multiple queries use the
 	 * <b>mysqli_multi_query</b> function.
 	 * </p>
+     * @expectedValues $flags MYSQLI_CLIENT_COMPRESS|MYSQLI_CLIENT_FOUND_ROWS|MYSQLI_CLIENT_IGNORE_SPACE|MYSQLI_CLIENT_INTERACTIVE|MYSQLI_CLIENT_SSL|MYSQLI_CLIENT_SSL_DONT_VERIFY_SERVER_CERT
 	 * @return bool true on success or false on failure.
 	 * @since 5.0
 	 */
@@ -653,6 +656,7 @@ class mysqli  {
 	 * @link http://php.net/manual/en/mysqli.rollback.php
 	 * @param int $flags A bitmask of MYSQLI_TRANS_COR_* constants.
 	 * @param string $name If provided then ROLLBACK $name is executed.
+     * @expectedValues $flags MYSQLI_TRANS_COR_AND_CHAIN|MYSQLI_TRANS_COR_AND_NO_CHAIN|MYSQLI_TRANS_COR_NO_RELEASE|MYSQLI_TRANS_COR_RELEASE
 	 * @return bool true on success or false on failure.
 	 * @since 5.5 Added flags and name parameters.
 	 * @since 5.0
@@ -1283,6 +1287,7 @@ class mysqli_stmt  {
 	 * is unnecessary.
 	 * </p>
 	 * @param int $mode <p>The value to assign to the attribute.</p>
+     * @exceptedValues $attr MYSQLI_STMT_ATTR_UPDATE_MAX_LENGTH,MYSQLI_STMT_ATTR_CURSOR_TYPE,MYSQLI_STMT_ATTR_PREFETCH_ROWS
 	 * @return bool
 	 * @since 5.0
 	 */
@@ -1529,6 +1534,7 @@ function mysqli_autocommit ($link, $mode) {}
  * @param mysqli $link A link identifier returned by mysqli_connect() or mysqli_init()
  * @param int $flags [optional]
  * @param string $name [optional]
+ * @expectedValues $flags MYSQLI_TRANS_START_READ_ONLY,MYSQLI_TRANS_START_READ_WRITE,MYSQLI_TRANS_START_WITH_CONSISTENT_SNAPSHOT
  * @return bool true on success or false on failure.
  * @since 5.5.0
  */
@@ -2109,6 +2115,7 @@ function mysqli_prepare ($link, $query) {}
  * </tr>
  * </table>
  * </p>
+ * @expectedValues $flags MYSQLI_REPORT_OFF,MYSQLI_REPORT_ERROR,MYSQLI_REPORT_STRICT,MYSQLI_REPORT_INDEX,MYSQLI_REPORT_ALL
  * @return bool
  */
 function mysqli_report ($flags) {}
@@ -2138,6 +2145,7 @@ function mysqli_query ($link, $query, $resultmode = MYSQLI_STORE_RESULT) {}
  * @param string $port
  * @param string $socket
  * @param int $flags
+ * @expectedValues $flags MYSQLI_CLIENT_COMPRESS|MYSQLI_CLIENT_FOUND_ROWS|MYSQLI_CLIENT_IGNORE_SPACE|MYSQLI_CLIENT_INTERACTIVE|MYSQLI_CLIENT_SSL|MYSQLI_CLIENT_SSL_DONT_VERIFY_SERVER_CERT
  * @return bool
  */
 function mysqli_real_connect ($link, $host = '', $user = '', $password = '', $database = '', $port = '', $socket = '', $flags = null) {}
@@ -2240,6 +2248,7 @@ function mysqli_stmt_attr_get ($stmt, $attr) {}
  * @param mysqli_stmt $stmt
  * @param int $attr
  * @param int $mode
+ * @exceptedValues $attr MYSQLI_STMT_ATTR_UPDATE_MAX_LENGTH,MYSQLI_STMT_ATTR_CURSOR_TYPE,MYSQLI_STMT_ATTR_PREFETCH_ROWS
  * @return bool
  */
 function mysqli_stmt_attr_set ($stmt, $attr, $mode) {}

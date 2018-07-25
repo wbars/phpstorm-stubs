@@ -530,6 +530,7 @@ class Memcached  {
 	 * @param int $flags [optional] <p>
 	 * The flags for the get operation.
 	 * </p>
+	 * @expectedValues $flags Memcached::GET_EXTENDED
 	 * @return mixed the value stored in the cache or <b>FALSE</b> otherwise.
 	 * The <b>Memcached::getResultCode</b> will return
 	 * <b>Memcached::RES_NOTFOUND</b> if the key does not exist.
@@ -552,6 +553,7 @@ class Memcached  {
 	 * @param int $flags [optional] <p>
 	 * The flags for the get operation.
 	 * </p>
+	 * @expectedValues $flags Memcached::GET_EXTENDED
 	 * @return mixed the value stored in the cache or <b>FALSE</b> otherwise.
 	 * The <b>Memcached::getResultCode</b> will return
 	 * <b>Memcached::RES_NOTFOUND</b> if the key does not exist.
@@ -568,6 +570,7 @@ class Memcached  {
 	 * @param int $flags [optional] <p>
 	 * The flags for the get operation.
 	 * </p>
+	 * @expectedValues $flags Memcached::GET_EXTENDED
 	 * @return mixed the array of found items or <b>FALSE</b> on failure.
 	 * Use <b>Memcached::getResultCode</b> if necessary.
 	 */
@@ -586,6 +589,7 @@ class Memcached  {
 	 * @param int $flags [optional] <p>
 	 * The flags for the get operation.
 	 * </p>
+	 * @expectedValues $flags Memcached::GET_EXTENDED
 	 * @return array the array of found items or <b>FALSE</b> on failure.
 	 * Use <b>Memcached::getResultCode</b> if necessary.
 	 */

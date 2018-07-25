@@ -267,6 +267,8 @@ class RecursiveIteratorIterator implements OuterIterator {
      * @param Traversable $iterator
      * @param int $mode [optional] The operation mode. See class constants for details.
      * @param int $flags [optional] A bitmask of special flags. See class constants for details.
+     * @expectedValues $mode RecursiveIteratorIterator::LEAVES_ONLY,RecursiveIteratorIterator::SELF_FIRST,RecursiveIteratorIterator::CHILD_FIRST
+     * @expectedValues $flags RecursiveIteratorIterator::CATCH_GET_CHILD
      * @since 5.1.3
      */
     public function __construct(Traversable $iterator, $mode = self::LEAVES_ONLY, $flags = 0) { }
@@ -790,6 +792,7 @@ class CachingIterator extends IteratorIterator implements ArrayAccess, Countable
      * @link http://php.net/manual/en/cachingiterator.construct.php
      * @param Iterator $iterator The iterator to cache.
      * @param int $flags [optional] A bitmask of flags. See CachingIterator class constants for details.
+     * @expectedValues $flags CALL_TOSTRING|TOSTRING_USE_KEY|TOSTRING_USE_CURRENT|TOSTRING_USE_INNER
      * @since 5.0
      */
     public function __construct(Iterator $iterator, $flags = self::CALL_TOSTRING) { }
@@ -946,6 +949,7 @@ class RecursiveCachingIterator extends CachingIterator implements RecursiveItera
      * @link http://php.net/manual/en/recursivecachingiterator.construct.php
      * @param Iterator $iterator The iterator to cache.
      * @param int $flags [optional] A bitmask of flags. See CachingIterator class constants for details.
+     * @expectedValues $flags CALL_TOSTRING|TOSTRING_USE_KEY|TOSTRING_USE_CURRENT|TOSTRING_USE_INNER
      * @since 5.1.0
      */
     public function __construct(Iterator $iterator, $flags = self::CALL_TOSTRING) { }
@@ -1194,6 +1198,9 @@ class RegexIterator extends FilterIterator {
      * @param int $mode [optional] Operation mode, see RegexIterator::setMode() for a list of modes.
      * @param int $flags [optional] Special flags, see RegexIterator::setFlags() for a list of available flags.
      * @param int $preg_flags [optional] The regular expression flags. These flags depend on the operation mode parameter
+     * @expectedValues $mode MATCH,GET_MATCH,ALL_MATCHES,SPLIT,REPLACE
+     * @expectedValues $flags USE_KEY
+     * @expectedValues $preg_flags USE_KEY
      * @since 5.2.0
      */
     public function __construct(Iterator $iterator, $regex, $mode = self::MATCH, $flags = 0, $preg_flags = 0) { }
@@ -1262,6 +1269,7 @@ class RegexIterator extends FilterIterator {
      * </tr>
      * </table>
      * </p>
+     * @expectedValues $mode RegexIterator::MATCH,RegexIterator::GET_MATCH,RegexIterator::ALL_MATCHES,RegexIterator::SPLIT,RegexIterator::REPLACE
      * @return void
      * @since 5.2.0
      */
@@ -1299,6 +1307,7 @@ class RegexIterator extends FilterIterator {
      * </tr>
      * </table>
      * </p>
+     * @expectedValues $flags USE_KEY
      * @return void
      * @since 5.2.0
      */
@@ -1346,6 +1355,9 @@ class RecursiveRegexIterator extends RegexIterator implements RecursiveIterator 
      * @param int $mode [optional] Operation mode, see RegexIterator::setMode() for a list of modes.
      * @param int $flags [optional] Special flags, see RegexIterator::setFlags() for a list of available flags.
      * @param int $preg_flags [optional] The regular expression flags. These flags depend on the operation mode parameter
+     * @expectedValues $mode MATCH,GET_MATCH,ALL_MATCHES,SPLIT,REPLACE
+     * @expectedValues $flags USE_KEY
+     * @expectedValues $preg_flags USE_KEY
      * @since 5.2.0
      */
     public function __construct(RecursiveIterator $iterator, $regex, $mode = self::MATCH, $flags = 0, $preg_flags = 0) { }
@@ -1391,6 +1403,9 @@ class RecursiveTreeIterator extends RecursiveIteratorIterator {
      * @param int $flags [optional] Flags to control the behavior of the RecursiveTreeIterator object.
      * @param int $caching_it_flags [optional] Flags to affect the behavior of the {@see RecursiveCachingIterator} used internally.
      * @param int $mode [optional] Flags to affect the behavior of the {@see RecursiveIteratorIterator} used internally.
+     * @expectedValues $flags BYPASS_KEY
+     * @expectedValues $caching_it_flags CATCH_GET_CHILD
+     * @expectedValues $mode SELF_FIRST
      * @since 5.3.0
      */
     public function __construct($iterator, $flags = self::BYPASS_KEY, $caching_it_flags = CachingIterator::CATCH_GET_CHILD,
@@ -1558,6 +1573,7 @@ class ArrayObject implements IteratorAggregate, ArrayAccess, Serializable, Count
      * @param array|object $input The input parameter accepts an array or an Object.
      * @param int $flags Flags to control the behaviour of the ArrayObject object.
      * @param string $iterator_class Specify the class that will be used for iteration of the ArrayObject object. ArrayIterator is the default class used.
+     * @expectedValues $flags STD_PROP_LIST|ARRAY_AS_PROPS
      * @since 5.0.0
      *
      */
@@ -1680,6 +1696,7 @@ class ArrayObject implements IteratorAggregate, ArrayAccess, Serializable, Count
      * </tr>
      * </table>
      * </p>
+     * @expectedValues $flags STD_PROP_LIST|ARRAY_AS_PROPS
      * @return void
      * @since 5.1.0
      */
@@ -1825,6 +1842,7 @@ class ArrayIterator implements SeekableIterator, ArrayAccess, Serializable, Coun
      * @link http://php.net/manual/en/arrayiterator.construct.php
      * @param array $array The array or object to be iterated on.
      * @param int $flags Flags to control the behaviour of the ArrayObject object.
+     * @expectedValues $flags STD_PROP_LIST|ARRAY_AS_PROPS
      * @see ArrayObject::setFlags()
      * @since 5.0.0
      */

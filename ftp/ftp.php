@@ -312,6 +312,7 @@ function ftp_pasv ($ftp_stream, $pasv) {}
  * @param int $resumepos [optional] <p>
  * The position in the remote file to start downloading from.
  * </p>
+ * @expectedValues $mode FTP_ASCII,FTP_BINARY
  * @return bool <b>TRUE</b> on success or <b>FALSE</b> on failure.
  * @since 4.0
  * @since 5.0
@@ -337,6 +338,7 @@ function ftp_get ($ftp_stream, $local_file, $remote_file, $mode, $resumepos = 0)
  * @param int $resumepos [optional] <p>
  * The position in the remote file to start downloading from.
  * </p>
+ * @expectedValues $mode FTP_ASCII,FTP_BINARY
  * @return bool <b>TRUE</b> on success or <b>FALSE</b> on failure.
  * @since 4.0
  * @since 5.0
@@ -360,6 +362,7 @@ function ftp_fget ($ftp_stream, $handle, $remote_file, $mode, $resumepos = 0) {}
  * <b>FTP_BINARY</b>.
  * </p>
  * @param int $startpos [optional] <p>The position in the remote file to start uploading to.</p>
+ * @expectedValues $mode FTP_ASCII,FTP_BINARY
  * @return bool <b>TRUE</b> on success or <b>FALSE</b> on failure.
  * @since 4.0
  * @since 5.0
@@ -383,6 +386,7 @@ function ftp_put ($ftp_stream, $remote_file, $local_file, $mode, $startpos = 0) 
  * <b>FTP_BINARY</b>.
  * </p>
  * @param int $startpos [optional] <p>The position in the remote file to start uploading to.</p>
+ * @expectedValues $mode FTP_ASCII,FTP_BINARY
  * @return bool <b>TRUE</b> on success or <b>FALSE</b> on failure.
  * @since 4.0
  * @since 5.0
@@ -572,6 +576,7 @@ function ftp_get_option ($ftp_stream, $option) {}
  * <b>FTP_BINARY</b>.
  * </p>
  * @param int $resumepos [optional] <p>The position in the remote file to start downloading from.</p>
+ * @expectedValues $mode FTP_ASCII,FTP_BINARY
  * @return int <b>FTP_FAILED</b> or <b>FTP_FINISHED</b>
  * or <b>FTP_MOREDATA</b>.
  * @since 4.3.0
@@ -596,6 +601,7 @@ function ftp_nb_fget ($ftp_stream, $handle, $remote_file, $mode, $resumepos = 0)
  * <b>FTP_BINARY</b>.
  * </p>
  * @param int $resumepos [optional] <p>The position in the remote file to start downloading from.</p>
+ * @expectedValues $mode FTP_ASCII,FTP_BINARY
  * @return int <b>FTP_FAILED</b> or <b>FTP_FINISHED</b>
  * or <b>FTP_MOREDATA</b>.
  * @since 4.3.0
@@ -633,6 +639,7 @@ function ftp_nb_continue ($ftp_stream) {}
  * <b>FTP_BINARY</b>.
  * </p>
  * @param int $startpos [optional] <p>The position in the remote file to start uploading to.</p>
+ * @expectedValues $mode FTP_ASCII,FTP_BINARY
  * @return int <b>FTP_FAILED</b> or <b>FTP_FINISHED</b>
  * or <b>FTP_MOREDATA</b>.
  * @since 4.3.0
@@ -657,6 +664,7 @@ function ftp_nb_put ($ftp_stream, $remote_file, $local_file, $mode, $startpos = 
  * <b>FTP_BINARY</b>.
  * </p>
  * @param int $startpos [optional] <p>The position in the remote file to start uploading to.</p>
+ * @expectedValues $mode FTP_ASCII,FTP_BINARY
  * @return int <b>FTP_FAILED</b> or <b>FTP_FINISHED</b>
  * or <b>FTP_MOREDATA</b>.
  * @since 4.3.0

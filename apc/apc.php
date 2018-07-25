@@ -287,6 +287,7 @@ function apc_bin_dump($files = null, $user_vars = null){}
  * @param string $filename The filename where the dump is being saved.
  * @param int $flags Flags passed to the filename stream. See the file_put_contents() documentation for details.
  * @param resource $context The context passed to the filename stream. See the file_put_contents() documentation for details.
+ * @expectedValues $flags FILE_USE_INCLUDE_PATH|FILE_APPEND|LOCK_EX
  * @return int|bool The number of bytes written to the file, otherwise FALSE if APC
  * is not enabled, filename is an invalid file name, filename can't be opened,
  * the file dump can't be completed (e.g., the hard drive is out of disk space),
@@ -299,6 +300,7 @@ function apc_bin_dumpfile($files, $user_vars, $filename, $flags = 0, $context = 
  * @link http://php.net/manual/en/function.apc-bin-load.php
  * @param string $data The binary dump being loaded, likely from apc_bin_dump().
  * @param int $flags Either APC_BIN_VERIFY_CRC32, APC_BIN_VERIFY_MD5, or both.
+ * @expectedValues $flags APC_BIN_VERIFY_CRC32|APC_BIN_VERIFY_MD5
  * @return bool Returns TRUE if the binary dump data was loaded with success, otherwise FALSE is returned.
  * FALSE is returned if APC is not enabled, or if the data is not a valid APC binary dump (e.g., unexpected size).
  */
@@ -310,6 +312,7 @@ function apc_bin_load($data, $flags = 0){}
  * @param string $filename The file name containing the dump, likely from apc_bin_dumpfile().
  * @param resource $context The files context.
  * @param int $flags Either APC_BIN_VERIFY_CRC32, APC_BIN_VERIFY_MD5, or both.
+ * @expectedValues $flags APC_BIN_VERIFY_CRC32|APC_BIN_VERIFY_MD5
  * @return bool Returns TRUE on success, otherwise FALSE Reasons it may return FALSE include APC
  * is not enabled, filename is an invalid file name or empty, filename can't be opened,
  * the file dump can't be completed, or if the data is not a valid APC binary dump (e.g., unexpected size).

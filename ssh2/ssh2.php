@@ -204,6 +204,7 @@ function ssh2_methods_negotiated ($session) {}
  * SSH2_FINGERPRINT_HEX or
  * SSH2_FINGERPRINT_RAW.
  * </p>
+ * @expectedValues $flags SSH2_FINGERPRINT_MD5|SSH2_FINGERPRINT_SHA1|SSH2_FINGERPRINT_HEX|SSH2_FINGERPRINT_RAW
  * @return string the hostkey hash as a string.
  */
 function ssh2_fingerprint ($session, $flags = null) {}

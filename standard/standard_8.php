@@ -679,6 +679,7 @@ function array_walk_recursive (array &$input, $funcname, $userdata = null) {}
  * COUNT_RECURSIVE (or 1), count
  * will recursively count the array. This is particularly useful for
  * counting all the elements of a multidimensional array. count does not detect infinite recursion.
+ * @expectedValues $mode COUNT_NORMAL,COUNT_RECOURSIVE
  * @return int the number of elements in var, which is
  * typically an array, since anything else will have one
  * element.

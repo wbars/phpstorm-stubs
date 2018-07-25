@@ -53,6 +53,7 @@ class V8Js
      * @param int $flags
      * @param int $time_limit in milliseconds
      * @param int $memory_limit in bytes
+     * @expectedValues $flags V8Js::FLAG_NONE,V8Js::FLAG_FORCE_ARRAY,V8Js::FLAG_PROPAGATE_PHP_EXCEPTIONS
      * @return mixed
      */
     public function executeString($script, $identifier = '', $flags = V8Js::FLAG_NONE, $time_limit = 0, $memory_limit = 0)
@@ -74,6 +75,7 @@ class V8Js
      * @param int $flags
      * @param int $time_limit
      * @param int $memory_limit
+     * @expectedValues $flags V8Js::FLAG_NONE,V8Js::FLAG_FORCE_ARRAY,V8Js::FLAG_PROPAGATE_PHP_EXCEPTIONS
      */
     public function executeScript($script, $flags = V8Js::FLAG_NONE, $time_limit = 0 , $memory_limit = 0)
     {}

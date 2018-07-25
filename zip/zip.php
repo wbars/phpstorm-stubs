@@ -311,6 +311,7 @@ class ZipArchive  {
 	 * <p>
 	 * <b>ZipArchive::OVERWRITE</b>
 	 * </p>
+	 * @expectedValues $flags ZipArchive::OVERWRITE|ZipArchive::CREATE|ZipArchive::EXCL|ZipArchive::CHECKCONS
 	 * @return mixed <i>Error codes</i>
 	 * <p>
 	 * Returns <b>TRUE</b> on success or the error code.
@@ -455,6 +456,7 @@ class ZipArchive  {
 	 * "remove_path" or "remove_all_path"
 	 * options.
 	 * </p>
+	 * @expectedValues $flags GLOB_MARK|GLOB_NOSORT|GLOB_NOCHECK|GLOB_NOESCAPE|GLOB_BRACE|GLOB_ONLYDIR|GLOB_ERR
 	 * @return bool <b>TRUE</b> on success or <b>FALSE</b> on failure.
 	 */
 	public function addGlob ($pattern, $flags = 0, array $options = array()) {}
@@ -523,6 +525,7 @@ class ZipArchive  {
 	 * If flags is set to <b>ZipArchive::FL_UNCHANGED</b>, the original unchanged
 	 * comment is returned.
 	 * </p>
+	 * @expectedValues $flag ZipArchive::FL_UNCHANGED
 	 * @return string the Zip archive comment or <b>FALSE</b> on failure.
 	 */
 	public function getArchiveComment ($flags = null) {}
@@ -617,6 +620,7 @@ class ZipArchive  {
 	 * If flags is set to <b>ZipArchive::FL_UNCHANGED</b>, the original unchanged
 	 * comment is returned.
 	 * </p>
+	 * @expectedValues $flag ZipArchive::FL_UNCHANGED
 	 * @return string the comment on success or <b>FALSE</b> on failure.
 	 */
 	public function getCommentIndex ($index, $flags = null) {}
@@ -632,6 +636,7 @@ class ZipArchive  {
 	 * If flags is set to <b>ZipArchive::FL_UNCHANGED</b>, the original unchanged
 	 * comment is returned.
 	 * </p>
+	 * @expectedValues $flag ZipArchive::FL_UNCHANGED
 	 * @return string the comment on success or <b>FALSE</b> on failure.
 	 */
 	public function getCommentName ($name, $flags = null) {}
@@ -673,6 +678,7 @@ class ZipArchive  {
 	 * <p>
 	 * <b>ZipArchive::FL_NOCASE</b>
 	 * </p>
+	 * @expectedValues $flag ZipArchive::FL_UNCHANGED|ZipArchive::FL_NOCASE
 	 * @return array an array containing the entry details or <b>FALSE</b> on failure.
 	 */
 	public function statName ($name, $flags = null) {}
@@ -689,6 +695,7 @@ class ZipArchive  {
 	 * information about the original file in the archive,
 	 * ignoring any changes made.
 	 * </p>
+	 * @expectedValues $flag ZipArchive::FL_UNCHANGED
 	 * @return array an array containing the entry details or <b>FALSE</b> on failure.
 	 */
 	public function statIndex ($index, $flags = null) {}
@@ -706,6 +713,7 @@ class ZipArchive  {
 	 * <p>
 	 * <b>ZipArchive::FL_NOCASE</b>
 	 * </p>
+	 * @expectedValues $flag ZipArchive::FL_NOCASE
 	 * @return int the index of the entry on success or <b>FALSE</b> on failure.
 	 */
 	public function locateName ($name, $flags = null) {}
@@ -721,6 +729,7 @@ class ZipArchive  {
 	 * If flags is set to <b>ZipArchive::FL_UNCHANGED</b>, the original unchanged
 	 * name is returned.
 	 * </p>
+	 * @expectedValues $flag ZipArchive::FL_UNCHANGED
 	 * @return string the name on success or <b>FALSE</b> on failure.
 	 */
 	public function getNameIndex ($index, $flags = null) {}
@@ -795,6 +804,7 @@ class ZipArchive  {
 	 * <p>
 	 * <b>ZipArchive::FL_UNCHANGED</b>
 	 * </p>
+	 * @expectedValues $flag ZipArchive::FL_UNCHANGED
 	 * @return string the contents of the entry on success or <b>FALSE</b> on failure.
 	 */
 	public function getFromName ($name, $length = 0, $flags = null) {}
@@ -816,6 +826,7 @@ class ZipArchive  {
 	 * <p>
 	 * <b>ZipArchive::FL_UNCHANGED</b>
 	 * </p>
+	 * @expectedValues $flag ZipArchive::FL_UNCHANGED
 	 * @return string the contents of the entry on success or <b>FALSE</b> on failure.
 	 */
 	public function getFromIndex ($index, $length = 0, $flags = null) {}

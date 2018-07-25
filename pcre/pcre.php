@@ -74,6 +74,7 @@
  * )
  * </pre>
  * </p>
+ * @expectedValues $flags PREG_OFFSET_CAPTURE|PREG_UNMATCHED_AS_NULL
  * @return int|false <b>preg_match</b> returns 1 if the <i>pattern</i>
  * matches given <i>subject</i>, 0 if it does not, or <b>FALSE</b>
  * if an error occurred.
@@ -137,6 +138,7 @@ function preg_match ($pattern, $subject, array &$matches = null, $flags = 0, $of
  * </p>
  * </p>
  * @param int $offset [optional]
+ * @expectedValues $flags PREG_PATTERN_ORDER|PREG_SET_ORDER|PREG_OFFSET_CAPTURE|PREG_UNMATCHED_AS_NULL
  * @return int|false the number of full pattern matches (which might be zero),
  * or <b>FALSE</b> if an error occurred.
  * @since 4.0
@@ -359,6 +361,7 @@ function preg_filter ($pattern, $replacement, $subject, $limit = -1, &$count = n
  * <b>PREG_SPLIT_NO_EMPTY</b>
  * If this flag is set, only non-empty pieces will be returned by
  * <b>preg_split</b>.
+ * @expectedValues $flags PREG_SPLIT_NO_EMPTY
  * @return string[]|array[]|false an array containing substrings of <i>subject</i>
  * split along boundaries matched by <i>pattern</i>, or <b>FALSE</b>
  * if an error occurred.
@@ -399,6 +402,7 @@ function preg_quote ($str, $delimiter = null) {}
  * the elements of the input array that do not match
  * the given <i>pattern</i>.
  * </p>
+ * @expectedValues $flags PREG_GREP_INVERT
  * @return array an array indexed using the keys from the
  * <i>input</i> array.
  * @since 4.0

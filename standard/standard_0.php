@@ -415,6 +415,7 @@ function wordwrap ($str, $width = 75, $break = "\n", $cut = false) {}
  * When <em><b>double_encode</b></em> is turned off PHP will not
  * encode existing html entities, the default is to convert everything.
  * </p>
+ * @expectedValues $flags ENT_COMPAT|ENT_QUOTES|ENT_NOQUOTES|ENT_IGNORE|ENT_SUBSTITUTE|ENT_DISALLOWED|ENT_HTML401|ENT_XML1|ENT_XHTML|ENT_HTML5
  * @return string The converted string.
  * @since 4.0
  * @since 5.0
@@ -963,6 +964,7 @@ function imagecrop ($image, $rect) {}
  * <p>
  * Used in <b>IMG_CROP_THRESHOLD</b> mode.
  * </p>
+ * @expectedValues $mode IMG_CROP_BLACK,IMG_CROP_DEFAULT,IMG_CROP_SIDES,IMG_CROP_THRESHOLD,IMG_CROP_TRANSPARENT,IMG_CROP_WHITE
  * @return resource|bool Return cropped image resource on success or <b>FALSE</b> on failure.
  * @since 5.5.0
  */

@@ -41,6 +41,7 @@ function odbc_autocommit ($connection_id, $OnOff = false) {}
  * @param int $mode <p>
  * Possible values for <i>mode</i> are:
  * <b>ODBC_BINMODE_PASSTHRU</b>: Passthru BINARY data
+ * @expectedValues $mode ODBC_BINMODE_PASSTHRU,ODBC_BINMODE_RETURN,ODBC_BINMODE_CONVERT
  * @return bool <b>TRUE</b> on success or <b>FALSE</b> on failure.
  * @since 4.0
  * @since 5.0

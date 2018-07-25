@@ -340,6 +340,7 @@ function posix_mkfifo ($pathname, $mode) {}
  * @param int $minor [optional] <p>
  * The minor device kernel identifier.
  * </p>
+ * @expectedValues $mode POSIX_S_IFREG,POSIX_S_IFCHR,POSIX_S_IFBLK,POSIX_S_IFIFO,POSIX_S_IFSOCK
  * @return bool <b>TRUE</b> on success or <b>FALSE</b> on failure.
  * @since 5.1.0
  */
@@ -363,6 +364,7 @@ function posix_mknod ($pathname, $mode, $major = 0, $minor = 0) {}
  * <b>POSIX_F_OK</b> just requests checking for the
  * existence of the file.
  * </p>
+ * @expectedValues $mode POSIX_F_OK|POSIX_R_OK|POSIX_W_OK|POSIX_X_OK
  * @return bool <b>TRUE</b> on success or <b>FALSE</b> on failure.
  * @since 5.1.0
  */

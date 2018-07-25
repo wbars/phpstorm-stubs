@@ -188,6 +188,7 @@ function variant_cat ( $left, $right ) {}
  * @param mixed $right
  * @param int $lcid [optional]
  * @param int $flags [optional]
+ * @expectedValues $flags NORM_IGNORECASE|NORM_IGNORENONSPACE|NORM_IGNORESYMBOLS|NORM_IGNOREWIDTH|NORM_IGNOREKANATYPE|NORM_IGNOREKASHIDA
  * @return int
  */
 function variant_cmp ( $left, $right, $lcid, $flags ) {}

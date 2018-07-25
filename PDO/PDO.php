@@ -949,6 +949,7 @@ class PDO  {
 	 * Arguments of custom class constructor when the <i>mode</i>
 	 * parameter is set to <b>PDO::FETCH_CLASS</b>.
 	 * </p>
+	 * @expectedValues $mode PDO::ATTR_FETCH_CATALOG_NAMES,PDO::ATTR_FETCH_TABLE_NAMES,PDO::ATTR_DEFAULT_FETCH_MODE,PDO::ATTR_STRINGIFY_FETCHES
 	 * @return PDOStatement|bool <b>PDO::query</b> returns a PDOStatement object, or <b>FALSE</b>
 	 * on failure.
 	 * @see PDOStatement::setFetchMode For a full description of the second and following parameters.
@@ -1482,6 +1483,7 @@ class PDOStatement implements Traversable {
 	 * Class name or object
 	 * </p>
 	 * @param array $ctorarfg [optional] <p> Constructor arguments. </p>
+	 * @expectedValues $mode PDO::ATTR_FETCH_CATALOG_NAMES,PDO::ATTR_FETCH_TABLE_NAMES,PDO::ATTR_DEFAULT_FETCH_MODE,PDO::ATTR_STRINGIFY_FETCHES
 	 * @return bool 1 on success or <b>FALSE</b> on failure.
 	 */
 	public function setFetchMode ($mode, $classNameObject, array $ctorarfg) {}

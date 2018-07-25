@@ -317,6 +317,7 @@ function stream_filter_remove ($stream_filter) {}
  * @param resource $context [optional] <p>
  * A valid context resource created with stream_context_create.
  * </p>
+ * @expectedValues $flags STREAM_CLIENT_CONNECT|STREAM_CLIENT_ASYNC_CONNECT|STREAM_CLIENT_PERSISTENT
  * @return resource|bool On success a stream resource is returned which may
  * be used together with the other file functions (such as
  * fgets, fgetss,
@@ -372,6 +373,7 @@ function stream_socket_client ($remote_socket, &$errno = null, &$errstr = null, 
  * </p>
  * @param resource $context [optional] <p>
  * </p>
+ * @expectedValues $flags STREAM_SERVER_BIND|STREAM_SERVER_LISTEN
  * @return resource the created stream, or false on error.
  * @since 5.0
  */
@@ -448,6 +450,7 @@ function stream_socket_get_name ($handle, $want_peer) {}
  * If address is provided it will be populated with
  * the address of the remote socket.
  * </p>
+ * @expectedValues $flags STREAM_OOB|STREAM_PEEK
  * @return string the read data, as a string
  * @since 5.0
  */
@@ -482,6 +485,7 @@ function stream_socket_recvfrom ($socket, $length, $flags = null, &$address = nu
  * <p>
  * If specified, it must be in dotted quad (or [ipv6]) format.
  * </p>
+ * @expectedValues $flags STREAM_OOB
  * @return int a result code, as an integer.
  * @since 5.0
  */
@@ -936,6 +940,7 @@ function stream_get_line ($handle, $length, $ending = null) {}
  * protocol is a URL protocol. Default is 0, local
  * stream.
  * </p>
+ * @expectedValues $flags STREAM_IS_URL
  * @return bool true on success or false on failure.
  * </p>
  * <p>
@@ -961,6 +966,7 @@ function stream_wrapper_register ($protocol, $classname, $flags = null) {}
  * protocol is a URL protocol. Default is 0, local
  * stream.
  * </p>
+ * @expectedValues $flags STREAM_IS_URL
  * @return bool true on success or false on failure.
  * </p>
  * <p>
@@ -1222,6 +1228,7 @@ function realpath ($path) {}
  * </tr>
  * </table>
  * </p>
+ * @expectedValues $flags FNM_NOESCAPE|FNM_PATHNAME|FNM_PERIOD|FNM_CASEFOLD
  * @return bool true if there is a match, false otherwise.
  * @since 4.3.0
  * @since 5.0

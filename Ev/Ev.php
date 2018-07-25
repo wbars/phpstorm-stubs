@@ -330,6 +330,7 @@ final class Ev
      * return value can generally be interpreted as if TRUE, there is more work left to do.
      *
      * @param int $flags One of the Ev::FLAG_* flags
+     * @expectedValues $flags FLAG_AUTO,FLAG_NOENV,FLAG_FORKCHECK,FLAG_NOINOTIFY,FLAG_SIGNALFD,FLAG_NOSIGMASK
      */
     final public static function run($flags = self::FLAG_AUTO) {}
 
@@ -1225,6 +1226,7 @@ final class EvLoop
      * @param mixed $data
      * @param float $io_interval
      * @param float $timeout_interval
+     * @expectedValues $flags FLAG_AUTO,FLAG_NOENV,FLAG_FORKCHECK,FLAG_NOINOTIFY,FLAG_SIGNALFD,FLAG_NOSIGMASK
      */
     public function __construct($flags = Ev::FLAG_AUTO, $data = null, $io_interval = 0.0, $timeout_interval = 0.0) {}
 
@@ -1372,6 +1374,7 @@ final class EvLoop
      * The return value can generally be interpreted as if TRUE, there is more work left to do.
      *
      * @param int $flags One of the Ev::RUN_* flags.
+     * @expectedValues $flags RUN_NOWAIT,RUN_ONCE
      */
     public function run($flags = Ev::FLAG_AUTO) {}
 
@@ -1442,6 +1445,7 @@ final class EvLoop
      * @param mixed $data
      * @param float $io_interval
      * @param float $timeout_interval
+     * @expectedValues $flags FLAG_AUTO,FLAG_NOENV,FLAG_FORKCHECK,FLAG_NOINOTIFY,FLAG_SIGNALFD,FLAG_NOSIGMASK
      */
     public static function defaultLoop(
         $flags = Ev::FLAG_AUTO, $data = null, $io_interval = 0.0, $timeout_interval = 0.0

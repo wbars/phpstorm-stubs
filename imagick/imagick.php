@@ -1295,6 +1295,7 @@ class Imagick implements Iterator, Countable {
 	 * @param int $mode <p>
 	 * One of the <b>Imagick::ALPHACHANNEL_*</b> constants
 	 * </p>
+     * @expectedValues $mode self::ALPHACHANNEL_ACTIVATE,self::ALPHACHANNEL_BACKGROUND,self::ALPHACHANNEL_COPY,self::ALPHACHANNEL_DEACTIVATE,self::ALPHACHANNEL_EXTRACT,self::ALPHACHANNEL_FLATTEN,self::ALPHACHANNEL_DEACTIVATE,self::ALPHACHANNEL_OPAQUE,self::ALPHACHANNEL_REMOVE,self::ALPHACHANNEL_RESET,self::ALPHACHANNEL_SET,self::ALPHACHANNEL_SHAPE,self::ALPHACHANNEL_TRANSPARENT,self::ALPHACHANNEL_UNDEFINED
 	 * @return bool <b>TRUE</b> on success.
 	 */
 	public function setImageAlphaChannel ($mode) {}
@@ -2236,6 +2237,7 @@ class Imagick implements Iterator, Countable {
 	 * Surround the image with an ornamental border (e.g. 15x15+3+3). The
 	 * frame color is that of the thumbnail's matte color.
 	 * </p>
+     * @expectedValues $mode imagick::MONTAGEMODE_FRAME,imagick::UNFRAME,imagick::CONCATENATE
 	 * @return Imagick <b>TRUE</b> on success.
 	 */
 	public function montageImage (ImagickDraw $draw, $tile_geometry, $thumbnail_geometry, $mode, $frame) {}

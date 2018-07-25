@@ -20,6 +20,7 @@
  * </li>
  * </ul>
  * </p>
+ * @expectedValues $flags TOKEN_PARSE
  * @return array An array of token identifiers. Each individual token identifier is either
  * a single character (i.e.: ;, .,
  * &gt;, !, etc...),

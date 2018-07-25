@@ -117,6 +117,7 @@ class SvnNode  {
  * Any combination of <b>SVN_NON_RECURSIVE</b> and
  * <b>SVN_IGNORE_EXTERNALS</b>.
  * </p>
+ * @expectedValues $flags SVN_NON_RECURSIVE|SVN_IGNORE_EXTERNALS
  * @return bool <b>TRUE</b> on success or <b>FALSE</b> on failure.
  */
 function svn_checkout ($repos, $targetpath, $revision = SVN_REVISION_HEAD, $flags = 0) {}
@@ -247,6 +248,7 @@ function svn_ls ($repos_url, $revision_no = SVN_REVISION_HEAD, $recurse = false,
  * </table>
  * <p>
  * If no changes were made to the item, an empty array is returned.
+ * @expectedValues $flag SVN_OMIT_MESSAGES|SVN_DISCOVER_CHANGED_PATHS|SVN_STOP_ON_COPY
  */
 function svn_log ($repos_url, $start_revision = null, $end_revision = null, $limit = 0, $flags = SVN_DISCOVER_CHANGED_PATHS | SVN_STOP_ON_COPY) {}
 
@@ -505,6 +507,7 @@ function svn_add ($path, $recursive = true, $force = false) {}
  * Integer revision of last commit. (Unaffected by <i>update</i>.)
  * cmt_author
  * String author of last commit. (Unaffected by <i>update
+ * @expectedValues $flags Svn::NON_RECURSIVE|Svn::ALL|Svn::SHOW_UPDATES|Svn::NO_IGNORE|Svn::IGNORE_EXTERNALS
  */
 function svn_status ($path, $flags = 0) {}
 

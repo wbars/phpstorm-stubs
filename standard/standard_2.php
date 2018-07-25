@@ -977,6 +977,7 @@ function rand ($min, $max) {}
  * @param int $mode [optional] <p>
  * Use one of the following constants to specify the implementation of the algorithm to use.
  * </p>
+ * @expectedValues $mode MT_RAND_MT19937,MT_RAND_PHP
  * @return void 
  * @since 4.0
  * @since 5.0

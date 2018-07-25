@@ -822,6 +822,7 @@ function openssl_pbkdf2($password, $salt, $key_length, $iterations, $digest_algo
  * stripped.
  * @param string|null
  * </p>
+ * @expectedValues $flags PKCS7_TEXT|PKCS7_BINARY|PKCS7_NOINTERN|PKCS7_NOVERIFY|PKCS7_NOCHAIN|PKCS7_NOCERTS|PKCS7_NOATTR|PKCS7_DETACHED|PKCS7_NOSIGS
  * @return mixed true if the signature is verified, false if it is not correct
  * (the message has been tampered with, or the signing certificate is invalid),
  * or -1 on error.
@@ -867,6 +868,7 @@ function openssl_pkcs7_decrypt($infilename, $outfilename, $recipcert, $recipkey 
  * a bunch of extra certificates to include in the signature which can for
  * example be used to help the recipient to verify the certificate that you used.
  * </p>
+ * @expectedValues $flags PKCS7_TEXT|PKCS7_BINARY|PKCS7_NOINTERN|PKCS7_NOVERIFY|PKCS7_NOCHAIN|PKCS7_NOCERTS|PKCS7_NOATTR|PKCS7_DETACHED|PKCS7_NOSIGS
  * @return bool true on success or false on failure.
  * @since 4.0.6
  * @since 5.0
@@ -898,6 +900,7 @@ function openssl_pkcs7_sign($infilename, $outfilename, $signcert, $privkey, arra
  * @param int $cipherid [optional] <p>
  * One of cipher constants.
  * </p>
+ * @expectedValues $flags PKCS7_TEXT|PKCS7_BINARY|PKCS7_NOINTERN|PKCS7_NOVERIFY|PKCS7_NOCHAIN|PKCS7_NOCERTS|PKCS7_NOATTR|PKCS7_DETACHED|PKCS7_NOSIGS
  * @return bool true on success or false on failure.
  * @since 4.0.6
  * @since 5.0

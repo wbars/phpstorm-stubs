@@ -382,6 +382,7 @@ namespace MongoDB {}
              * @link http://php.net/manual/en/mongodb-driver-readpreference.construct.php
              * @param int $mode
              * @param array $tagSets
+             * @expectedValues $mode \MongoDB\Driver\ReadPreference::RP_PRIMARY,\MongoDB\Driver\ReadPreference::RP_PRIMARY_PREFERRED,\MongoDB\Driver\ReadPreference::RP_SECONDARY,\MongoDB\Driver\ReadPreference::RP_SECONDARY_PREFERRED,\MongoDB\Driver\ReadPreference::RP_NEAREST
              * @throws InvalidArgumentException if mode is invalid or if tagSets is provided for a primary read preference.
              */
             final public function __construct($mode, array $tagSets = [])

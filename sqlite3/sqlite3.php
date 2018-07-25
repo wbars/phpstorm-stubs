@@ -25,6 +25,7 @@ class SQLite3  {
 	 * An optional encryption key used when encrypting and decrypting an
 	 * SQLite database.
 	 * </p>
+	 * @expectedValues $flags SQLITE3_OPEN_READWRITE|SQLITE3_OPEN_CREATE|SQLITE3_OPEN_READONLY
 	 * @return void No value is returned.
 	 * @since 5.3.0
 	 */
@@ -199,6 +200,7 @@ class SQLite3  {
 	 * <p>A bitwise conjunction of flags.
 	 * Currently, only <b>SQLITE3_DETERMINISTIC</b> is supported, which specifies that the function always returns
 	 * the same result given the same inputs within a single SQL statement.</p>
+	 * @expectedValues $flags SQLITE3_DETERMINISTIC
 	 * @return bool <b>TRUE</b> upon successful creation of the function, <b>FALSE</b> on failure.
 	 * @since 5.3.0
 	 */
@@ -256,6 +258,7 @@ class SQLite3  {
 	 * @param $dbname [optional] <p>The symbolic name of the DB</p>
 	 * @param int $flags [optional]
 	 * <p>Either <b>SQLITE3_OPEN_READONLY</b> or <b>SQLITE3_OPEN_READWRITE</b> to open the stream for reading only, or for reading and writing, respectively.</p?
+	 * @expectedValues $flags SQLITE3_OPEN_READONLY,SQLITE3_OPEN_READWRITE
 	 * @return resource|bool Returns a stream resource, or FALSE on failure.
 	 */
 	public function openBlob ($table, $column, $rowid, $dbname, int $flags = SQLITE3_OPEN_READONLY) {}
@@ -282,6 +285,7 @@ class SQLite3  {
 	 * An optional encryption key used when encrypting and decrypting an
 	 * SQLite database.
 	 * </p>
+	 * @expectedValues $flags SQLITE3_OPEN_READWRITE|SQLITE3_OPEN_CREATE|SQLITE3_OPEN_READONLY
 	 * @since 5.3.0
 	 */
 	public function __construct ($filename, $flags = null, $encryption_key = null) {}
@@ -445,6 +449,7 @@ class SQLite3Result  {
 	 * </p>
 	 * @return array a result row as an associatively or numerically indexed array or
 	 * both. Alternately will return <b>FALSE</b> if there are no more rows.
+	 * @expectedValues $mode SQLITE3_ASSOC,SQLITE3_NUM,SQLITE3_BOTH
 	 * @since 5.3.0
 	 */
 	public function fetchArray ($mode = SQLITE3_BOTH) {}

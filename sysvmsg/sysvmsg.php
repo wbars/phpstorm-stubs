@@ -142,6 +142,7 @@ function msg_send ($queue, $msgtype, $message, $serialize = true, $blocking = tr
  * follows: msg_lrpid is set to the process-ID of the
  * calling process, msg_qnum is decremented by 1 and
  * msg_rtime is set to the current time.
+ * @expectedValues $flags MSG_IPC_NOWAIT|MSG_EXCEPT|MSG_NOERROR
  * @since 4.3.0
  * @since 5.0
  */
