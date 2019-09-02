@@ -44,7 +44,7 @@ class StubParser
     public static function processStubs(NodeVisitorAbstract $visitor, callable $fileCondition): void
     {
         $parser = (new ParserFactory)->create(ParserFactory::PREFER_PHP7);
-        $nameResolver = new NameResolver;
+        $nameResolver = new NameResolver(null, ['preserveOriginalNames' => true]);
 
         $stubsIterator =
             new RecursiveIteratorIterator(
@@ -52,7 +52,7 @@ class StubParser
             );
         /** @var SplFileInfo $file */
         foreach ($stubsIterator as $file) {
-            if (!$fileCondition($file) ||
+            if (!$fileCondition($file) || basename(dirname($file->getRealPath())) === "phpstorm-stubs" ||
                 strpos($file->getRealPath(), 'vendor') || strpos($file->getRealPath(), '.git') ||
                 strpos($file->getRealPath(), 'tests') || strpos($file->getRealPath(), '.idea')) {
                 continue;

@@ -38,12 +38,12 @@ namespace MongoDB {}
              * Manager constructor.
              * @link https://php.net/manual/en/mongodb-driver-manager.construct.php
              * @param string $uri A mongodb:// connection URI
-             * @param array $options Connection string options
+             * @param array $uriOptions Connection string options
              * @param array $driverOptions Any driver-specific options not included in MongoDB connection spec.
              * @throws InvalidArgumentException on argument parsing errors
              * @throws RuntimeException if the uri format is invalid
              */
-            final public function __construct($uri, array $options = [], array $driverOptions = [])
+            final public function __construct($uri, array $uriOptions = [], array $driverOptions = [])
             {
             }
 
@@ -52,10 +52,11 @@ namespace MongoDB {}
              * @link https://php.net/manual/en/mongodb-driver-manager.executebulkwrite.php
              * @param string $namespace A fully qualified namespace (databaseName.collectionName)
              * @param BulkWrite $bulk The MongoDB\Driver\BulkWrite to execute.
-             * @param WriteConcern $writeConcern Optionally, a MongoDB\Driver\WriteConcern. If none given, default to the Write Concern set by the MongoDB Connection URI.
+             * @param array|WriteConcern $options WriteConcern type for backwards compatibility
              * @return WriteResult
+             * @since 1.4.0 added $options argument
              */
-            final public function executeBulkWrite($namespace, BulkWrite $bulk, WriteConcern $writeConcern = null)
+            final public function executeBulkWrite($namespace, BulkWrite $bulk, $options = [])
             {
             }
 
@@ -63,7 +64,7 @@ namespace MongoDB {}
              * @link https://php.net/manual/en/mongodb-driver-manager.executecommand.php
              * @param string $db The name of the database on which to execute the command.
              * @param Command $command The command document.
-             * @param ReadPreference $readPreference Optionally, a MongoDB\Driver\ReadPreference to route the command to. If none given, defaults to the Read Preferences set by the MongoDB Connection URI.
+             * @param array|ReadPreference $options ReadPreference type for backwards compatibility
              * @return Cursor
              * @throws Exception
              * @throws AuthenticationException if authentication is needed and fails
@@ -71,8 +72,9 @@ namespace MongoDB {}
              * @throws RuntimeException on other errors (invalid command, command arguments, ...)
              * @throws WriteException on Write Error
              * @throws WriteConcernException on Write Concern failure
+             * @since 1.4.0 added $options argument
              */
-            final public function executeCommand($db, Command $command, ReadPreference $readPreference = null)
+            final public function executeCommand($db, Command $command, $options = [])
             {
             }
 
@@ -81,24 +83,69 @@ namespace MongoDB {}
              * @link https://php.net/manual/en/mongodb-driver-manager.executequery.php
              * @param string $namespace A fully qualified namespace (databaseName.collectionName)
              * @param Query $query A MongoDB\Driver\Query to execute.
-             * @param ReadPreference $readPreference Optionally, a MongoDB\Driver\ReadPreference to route the command to. If none given, defaults to the Read Preferences set by the MongoDB Connection URI.
+             * @param array|ReadPreference $options ReadPreference type for backwards compatibility
              * @return Cursor
              * @throws Exception
              * @throws AuthenticationException if authentication is needed and fails
              * @throws ConnectionException if connection to the server fails for other then authentication reasons
              * @throws RuntimeException on other errors (invalid command, command arguments, ...)
+             * @since 1.4.0 added $options argument
              */
-            final public function executeQuery($namespace, Query $query, ReadPreference $readPreference = null)
+            final public function executeQuery($namespace, Query $query, $options = [])
             {
             }
 
             /**
-             * Return the servers to which this manager is connected
-             * @link https://php.net/manual/en/mongodb-driver-manager.getservers.php
-             * @throws InvalidArgumentException on argument parsing errors
-             * @return Server[]
+             * @link https://php.net/manual/en/mongodb-driver-manager.executereadcommand.php
+             * @param string $db The name of the database on which to execute the command that reads.
+             * @param Command $command The command document.
+             * @param array $options
+             * @return Cursor
+             * @throws Exception
+             * @throws AuthenticationException if authentication is needed and fails
+             * @throws ConnectionException if connection to the server fails for other then authentication reasons
+             * @throws RuntimeException on other errors (invalid command, command arguments, ...)
+             * @throws WriteException on Write Error
+             * @throws WriteConcernException on Write Concern failure
+             * @since 1.4.0
              */
-            final public function getServers()
+            final public function executeReadCommand($db, Command $command, array $options = [])
+            {
+            }
+
+            /**
+             * @link https://php.net/manual/en/mongodb-driver-manager.executereadwritecommand.php
+             * @param string $db The name of the database on which to execute the command that reads.
+             * @param Command $command The command document.
+             * @param array $options
+             * @return Cursor
+             * @throws Exception
+             * @throws AuthenticationException if authentication is needed and fails
+             * @throws ConnectionException if connection to the server fails for other then authentication reasons
+             * @throws RuntimeException on other errors (invalid command, command arguments, ...)
+             * @throws WriteException on Write Error
+             * @throws WriteConcernException on Write Concern failure
+             * @since 1.4.0
+             */
+            final public function executeReadWriteCommand($db, Command $command, array $options = [])
+            {
+            }
+
+            /**
+             * @link https://php.net/manual/en/mongodb-driver-manager.executewritecommand.php
+             * @param string $db The name of the database on which to execute the command that writes.
+             * @param Command $command The command document.
+             * @param array $options
+             * @return Cursor
+             * @throws Exception
+             * @throws AuthenticationException if authentication is needed and fails
+             * @throws ConnectionException if connection to the server fails for other then authentication reasons
+             * @throws RuntimeException on other errors (invalid command, command arguments, ...)
+             * @throws WriteException on Write Error
+             * @throws WriteConcernException on Write Concern failure
+             * @since 1.4.0
+             */
+            final public function executeWriteCommand($db, Command $command, array $options = [])
             {
             }
 
@@ -119,6 +166,16 @@ namespace MongoDB {}
              * @return ReadPreference
              */
             final public function getReadPreference()
+            {
+            }
+
+            /**
+             * Return the servers to which this manager is connected
+             * @link https://php.net/manual/en/mongodb-driver-manager.getservers.php
+             * @throws InvalidArgumentException on argument parsing errors
+             * @return Server[]
+             */
+            final public function getServers()
             {
             }
 
@@ -350,7 +407,7 @@ namespace MongoDB {}
              * Checks if this server is an arbiter member of a replica set
              * @link https://php.net/manual/en/mongodb-driver-server.isarbiter.php
              * @throws InvalidArgumentException on argument parsing errors.
-             * @return boolean
+             * @return bool
              */
             final public function isArbiter()
             {
@@ -360,7 +417,7 @@ namespace MongoDB {}
              * Checks if this server is a hidden member of a replica set
              * @link https://php.net/manual/en/mongodb-driver-server.ishidden.php
              * @throws InvalidArgumentException on argument parsing errors.
-             * @return boolean
+             * @return bool
              */
             final public function isHidden()
             {
@@ -370,7 +427,7 @@ namespace MongoDB {}
              * Checks if this server is a passive member of a replica set
              * @link https://php.net/manual/en/mongodb-driver-server.ispassive.php
              * @throws InvalidArgumentException on argument parsing errors.
-             * @return boolean
+             * @return bool
              */
             final public function isPassive()
             {
@@ -380,7 +437,7 @@ namespace MongoDB {}
              * Checks if this server is a primary member of a replica set
              * @link https://php.net/manual/en/mongodb-driver-server.isprimary.php
              * @throws InvalidArgumentException on argument parsing errors.
-             * @return boolean
+             * @return bool
              */
             final public function isPrimary()
             {
@@ -390,7 +447,7 @@ namespace MongoDB {}
              * Checks if this server is a secondary member of a replica set
              * @link https://php.net/manual/en/mongodb-driver-server.issecondary.php
              * @throws InvalidArgumentException on argument parsing errors.
-             * @return boolean
+             * @return bool
              */
             final public function isSecondary()
             {
@@ -452,10 +509,11 @@ namespace MongoDB {}
              * Construct immutable ReadPreference
              * @link https://php.net/manual/en/mongodb-driver-readpreference.construct.php
              * @param int $mode
-             * @param array $tagSets
+             * @param array|null $tagSets
+             * @param array $options
              * @throws InvalidArgumentException if mode is invalid or if tagSets is provided for a primary read preference.
              */
-            final public function __construct($mode, array $tagSets = [])
+            final public function __construct($mode, array $tagSets = null, array $options = [] )
             {
             }
 
@@ -531,7 +589,7 @@ namespace MongoDB {}
             /**
              * Checks if this is the default read concern
              * @link https://secure.php.net/manual/en/mongodb-driver-readconcern.isdefault.php
-             * @return boolean
+             * @return bool
              * @since 1.3.0
              * @throws \MongoDB\Driver\Exception\InvalidArgumentException On argument parsing errors.
              */
@@ -578,7 +636,7 @@ namespace MongoDB {}
             /**
              * Checks if a cursor is still alive
              * @link https://php.net/manual/en/mongodb-driver-cursor.isdead.php
-             * @return boolean
+             * @return bool
              * @throws InvalidArgumentException On argument parsing errors
              */
             final public function isDead()
@@ -721,7 +779,7 @@ namespace MongoDB {}
              * @link https://php.net/manual/en/mongodb-driver-writeconcern.construct.php
              * @param string|integer $w
              * @param integer $wtimeout How long to wait (in milliseconds) for secondaries before failing.
-             * @param boolean $journal Wait until mongod has applied the write to the journal.
+             * @param bool $journal Wait until mongod has applied the write to the journal.
              * @throws InvalidArgumentException on argument parsing errors.
              */
             final public function __construct($w, $wtimeout = 0, $journal = false)
@@ -846,7 +904,7 @@ namespace MongoDB {}
             /**
              * Returns whether the write was acknowledged
              * @link https://php.net/manual/en/mongodb-driver-writeresult.isacknowledged.php
-             * @return boolean
+             * @return bool
              */
             final public function isAcknowledged()
             {
@@ -1078,7 +1136,7 @@ namespace MongoDB {}
              *
              * @param string $errorLabel
              * @since 1.6.0
-             * @return boolean
+             * @return bool
              */
             final public function hasErrorLabel($errorLabel)
             {
@@ -1493,7 +1551,7 @@ namespace MongoDB {}
              * Returns the command document
              * The reply document will be converted from BSON to PHP using the default deserialization rules (e.g. BSON documents will be converted to stdClass).
              * @link   https://secure.php.net/manual/en/mongodb-driver-monitoring-commandstartedevent.getcommand.php
-             * @return string the command document as a stdClass object.
+             * @return object the command document as a stdClass object.
              * @throws \InvalidArgumentException on argument parsing errors.
              * @since 1.3.0
              */
@@ -1837,7 +1895,7 @@ namespace MongoDB {}
          * Represents a BSON timestamp, which is an internal MongoDB type not intended for general date storage.
          * @link https://php.net/manual/en/class.mongodb-bson-timestamp.php
          */
-        class Timestamp implements Type
+        class Timestamp implements TimestampInterface, Type
         {
             /**
              * Construct a new Timestamp
@@ -1855,6 +1913,26 @@ namespace MongoDB {}
              * @return string
              */
             final public function __toString()
+            {
+            }
+
+            /**
+             * Returns the increment component of this TimestampInterface
+             * @link https://secure.php.net/manual/en/mongodb-bson-timestampinterface.getincrement.php
+             * @return int
+             * @since 1.3.0
+             */
+            public function getIncrement()
+            {
+            }
+
+            /**
+             * Returns the timestamp component of this TimestampInterface
+             * @link https://secure.php.net/manual/en/mongodb-bson-timestampinterface.gettimestamp.php
+             * @return int
+             * @since 1.3.0
+             */
+            public function getTimestamp()
             {
             }
         }

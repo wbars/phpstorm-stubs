@@ -987,7 +987,25 @@
       ]
     },
     {
+      "name":"setcookie",
+      "problems": [
+        "parameter mismatch"
+      ]
+    },
+    {
+      "name":"setrawcookie",
+      "problems": [
+        "parameter mismatch"
+      ]
+    },
+    {
       "name":"sodium_memzero",
+      "problems": [
+        "parameter mismatch"
+      ]
+    },
+    {
+      "name":"strtr",
       "problems": [
         "parameter mismatch"
       ]
@@ -1572,6 +1590,17 @@
         },
         {
           "name": "schemaValidateSource",
+          "problems": [
+            "parameter mismatch"
+          ]
+        }
+      ]
+    },
+    {
+      "name": "Closure",
+      "methods": [
+        {
+          "name": "__invoke",
           "problems": [
             "parameter mismatch"
           ]
